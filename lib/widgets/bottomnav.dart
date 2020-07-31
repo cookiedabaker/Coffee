@@ -22,8 +22,7 @@ class _SharedBottomNavState extends State<SharedBottomNav> {
     ),
     Text(
       'Index 1: Business',
-      style: optionStyle,
-    ),
+      style: optionStyle,   ),
     Text(
       'Index 2: School',
       style: optionStyle,
@@ -45,12 +44,12 @@ class _SharedBottomNavState extends State<SharedBottomNav> {
           title: Text('Home'),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.business),
-          title: Text('Business'),
+          icon: Icon(Icons.account_circle),
+          title: Text('Account'),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.school),
-          title: Text('School'),
+          icon: Icon(Icons.settings),
+          title: Text('Settings'),
         ),
       ],
       currentIndex: _selectedIndex,

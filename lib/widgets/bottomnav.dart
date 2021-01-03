@@ -21,10 +21,14 @@ class _SharedBottomNavState extends State<SharedBottomNav> {
       style: optionStyle,
     ),
     Text(
-      'Index 1: Business',
+      'Index 1: Contacts',
       style: optionStyle,   ),
     Text(
-      'Index 2: School',
+      'Index 2: account',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: settings',
       style: optionStyle,
     ),
   ];
@@ -41,19 +45,24 @@ class _SharedBottomNavState extends State<SharedBottomNav> {
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
-          title: Text('Home'),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.book),
+          label: 'Contacts',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.account_circle),
-          title: Text('Account'),
+          label: 'Account',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.settings),
-          title: Text('Settings'),
+          label: 'Settings',
         ),
       ],
       currentIndex: _selectedIndex,
       selectedItemColor: Colors.amber[800],
+      unselectedItemColor: Colors.black38,
       onTap: _onItemTapped,
     );
   }

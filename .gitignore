@@ -42,9 +42,6 @@ app.*.map.json
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
-GoogleService-Info.plist
-google-services.json
-
 # XCode stuff from https://github.com/github/gitignore/blob/master/Global/Xcode.gitignore
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 

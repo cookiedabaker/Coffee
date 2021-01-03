@@ -1,16 +1,16 @@
-# coffee
+# Project Coffee
 
-Keep in touch with friends
+Automate your friendships
 
-## Getting Started
+## Planned Core Feature Set
 
-This project is a starting point for a Flutter application.
+- Input a contact list in the network to "match" cities when travelling to prompt you to reach out and schedule a coffee chat
+- Regular interval prompts to reach out (input frequency)
+- Google Cal/iCal feed integration to pull cities of travel
+- Untapped integration to allow meetups at pubs for more casual friendships.
+- Facebook contacts/local device contacts optional to import for networking with friends.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Implementation plans
+- Firebase backend
+- flutter
+- etc...

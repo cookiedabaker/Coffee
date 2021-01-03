@@ -1,6 +1,5 @@
 //homepage
 import 'package:flutter/material.dart';
-import '../widgets/bottomnav.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -19,14 +18,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      bottomNavigationBar: SharedBottomNav(),
-      body: Center(
-        child: Text('Home Page'),
-      ),
+    return Center(
+      child: Text('Home Page'),
     );
   }
 }

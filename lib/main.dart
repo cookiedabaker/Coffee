@@ -1,30 +1,69 @@
 import 'package:flutter/material.dart';
 
 // Screens
-import 'screens/myhomepage.dart';
-import 'screens/account.dart';
-import 'screens/settings.dart';
-import 'screens/about.dart';
+import 'pages/myhomepage.dart';
+import 'pages/account.dart';
+import 'pages/settings.dart';
+import 'pages/about.dart';
+import 'pages/contacts.dart';
 
+void main() => runApp(MainWrapper());
 
-void main() => runApp(MyApp());
+class MainWrapper extends StatefulWidget {
+  @override
+  _MainWrapperState createState() => _MainWrapperState();
+}
 
-class MyApp extends StatelessWidget {
+class _MainWrapperState extends State<MainWrapper> {
+  int selectedPage = 0;
+
+  final _pageOptions = [
+    MyHomePage(),
+    Contacts(),
+    Account(),
+    Settings(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Project Coffee',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: ThemeData.light(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Project Coffee'),
+        ),
+        body: _pageOptions[selectedPage],
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.book),
+              label: 'Contacts',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle),
+              label: 'Account',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            ),
+          ],
+          currentIndex: selectedPage,
+          selectedItemColor: Colors.amber[800],
+          unselectedItemColor: Colors.blue,
+          showUnselectedLabels: true,
+          onTap: (index) {
+            setState(() {
+              selectedPage = index;
+            });
+          },
+        ),
       ),
-      initialRoute: '/',
-      // Routes for the app
-      routes: {
-        '/': (context) => MyHomePage(title: 'People Dashboard'),
-        '/account': (context) => AccountPage(),
-        '/settings': (context) => Settings(),
-        '/about': (context) => AboutPage(),
-      },
     );
   }
 }

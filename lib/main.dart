@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-// Screens
+// Pages
+import 'pages/splashscreen.dart';
 import 'pages/myhomepage.dart';
 import 'pages/account.dart';
 import 'pages/settings.dart';
 import 'pages/about.dart';
 import 'pages/contacts.dart';
+import 'pages/travel.dart';
 
 void main() => runApp(MainWrapper());
 
@@ -47,16 +49,29 @@ class _MainWrapperState extends State<MainWrapper> {
   final _pageOptions = [
     MyHomePage(),
     Contacts(),
+    Travel(),
     Account(),
     Settings(),
   ];
 
   // putting title in app when switching pages. correlates with '_pageOptions'
-  final _pageTitles = [
-    'Project Coffee',
-    'My Contacts',
-    'My Account',
-    'Settings',
+  final _pageAppBars = [
+    AppBar(
+      title: Text('Project Coffee'),
+    ),
+    AppBar(
+      title: Text('My Contacts'),
+    ),
+    AppBar(
+      title: Text('Travel'),
+      actions: [IconButton(icon: Icon(Icons.add), onPressed: null)],
+    ),
+    AppBar(
+      title: Text('My Account'),
+    ),
+    AppBar(
+      title: Text('Settings'),
+    ),
   ];
 
   @override
@@ -71,9 +86,7 @@ class _MainWrapperState extends State<MainWrapper> {
       title: 'Project Coffee',
       theme: ThemeData.light(),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text(_pageTitles[selectedPage]),
-        ),
+        appBar: _pageAppBars[selectedPage],
         body: _pageOptions[selectedPage],
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
@@ -84,6 +97,10 @@ class _MainWrapperState extends State<MainWrapper> {
             BottomNavigationBarItem(
               icon: Icon(Icons.book),
               label: 'Contacts',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.airplanemode_on_outlined),
+              label: 'Travel',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.account_circle),

@@ -1,5 +1,7 @@
 // Account page
 
+// Pretty much all of it will be inside a futureBuilder?
+
 import 'package:flutter/material.dart';
 
 class Account extends StatefulWidget {

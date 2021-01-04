@@ -17,11 +17,20 @@ class MainWrapper extends StatefulWidget {
 class _MainWrapperState extends State<MainWrapper> {
   int selectedPage = 0;
 
+  // Run selected page in scoffold's 'body'. returns stateful Widgets
   final _pageOptions = [
     MyHomePage(),
     Contacts(),
     Account(),
     Settings(),
+  ];
+
+  // putting title in app when switching pages. correlates with '_pageOptions'
+  final _pageTitles = [
+    'Project Coffee',
+    'My Contacts',
+    'My Account',
+    'Settings',
   ];
 
   @override
@@ -31,7 +40,7 @@ class _MainWrapperState extends State<MainWrapper> {
       theme: ThemeData.light(),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Project Coffee'),
+          title: Text(_pageTitles[selectedPage]),
         ),
         body: _pageOptions[selectedPage],
         bottomNavigationBar: BottomNavigationBar(

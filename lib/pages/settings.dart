@@ -1,6 +1,7 @@
 // Settings Page
 
 import 'package:flutter/material.dart';
+import 'about.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -37,13 +38,21 @@ class _SettingsState extends State<Settings> {
           ),
         ),
         SizedBox(height: 30),
-        Card(
-          child: ListTile(
-            contentPadding: EdgeInsets.only(left: 20.0,right: 10.0),
+        GestureDetector(
+          child: Card(
+            child: ListTile(
+              contentPadding: EdgeInsets.only(left: 20.0,right: 10.0),
 
-            title: Text('About'),
-            trailing: Icon(Icons.arrow_forward_ios),
+              title: Text('About'),
+              trailing: Icon(Icons.arrow_forward_ios),
+            ),
           ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AboutPage()),
+            );
+          },
         ),
 
 

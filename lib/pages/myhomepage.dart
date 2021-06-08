@@ -13,6 +13,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     // TODO: implement initState
+    // TODO: Check for authentication. if not, prompt login screen
     super.initState();
   }
 

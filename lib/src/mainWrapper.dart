@@ -1,20 +1,15 @@
+// Main wrapper for pages
+
 import 'package:flutter/material.dart';
 
-// Import firebase plugins
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
 // Pages
-import 'pages/splashscreen.dart';
-import 'pages/errorAtInit.dart';
-import 'pages/myhomepage.dart';
-import 'pages/account.dart';
-import 'pages/settings.dart';
-import 'pages/about.dart';
-import 'pages/contacts.dart';
-import 'pages/travel.dart';
-
-void main() => runApp(MainWrapper());
+import '../pages/splashscreen.dart';
+import '../pages/myhomepage.dart';
+import '../pages/account.dart';
+import '../pages/settings.dart';
+import '../pages/about.dart';
+import '../pages/contacts.dart';
+import '../pages/travel.dart';
 
 class MainWrapper extends StatefulWidget {
   @override
@@ -22,26 +17,7 @@ class MainWrapper extends StatefulWidget {
 }
 
 class _MainWrapperState extends State<MainWrapper> {
-  // ----- FlutterFire init stuff ---------------------------------------------
-  // Set default `_initialized` and `_error` state to false
-  bool _initialized = false;
-  bool _error = false;
 
-  // Define an async function to initialize FlutterFire
-  void initializeFlutterFire() async {
-    try {
-      // Wait for Firebase to initialize and set `_initialized` state to true
-      await Firebase.initializeApp();
-      setState(() {
-        _initialized = true;
-      });
-    } catch(e) {
-      // Set `_error` state to true if Firebase initialization fails
-      setState(() {
-        _error = true;
-      });
-    }
-  }
 
   // ----- Selected pages indexes correlated to the BottomNavBar --------------
   int selectedPage = 0;
@@ -75,25 +51,10 @@ class _MainWrapperState extends State<MainWrapper> {
     ),
   ];
 
-  @override
-  void initState() {
-    initializeFlutterFire();
-    super.initState();
-  }
+
 
   @override
   Widget build(BuildContext context) {
-
-    // Show error message if initialization failed
-    if(_error) {
-      return ErrorAtInit();
-    }
-
-    // Show a loader until FlutterFire is initialized
-    if (!_initialized) {
-      return SplashScreen();
-    }
-
     return MaterialApp(
       title: 'Project Coffee',
       theme: ThemeData.light(),

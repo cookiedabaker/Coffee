@@ -3,7 +3,7 @@ import 'all.dart';
 import 'package:path/path.dart';
 import 'dart:async';
 import 'package:flutter/widgets.dart';
-import 'package:sqflite/sqflite.dart';
+// import 'package:sqflite/sqflite.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -19,16 +19,7 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
-  static Database _database;
 
-  Future<Database> get database async {
-    if (_database != null)
-      return _database;
-
-    // if _database is null we instantiate it
-    _database = await initDB();
-    return _database;
-  }
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -121,11 +112,4 @@ class Person {
     required this.age,
     required this.count,
   });
-}
-
-// for db, singleton definition
-
-class DBProvider {
-  DBProvider._();
-  static final DBProvider db = DBProvider._();
 }
